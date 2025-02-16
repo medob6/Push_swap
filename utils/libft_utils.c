@@ -6,11 +6,11 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:47:49 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:19:32 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:23:42 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *str, char **numbers)
 {

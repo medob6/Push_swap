@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:47:29 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:59:00 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:30:21 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	move_valid(char *s)
 	if (compstr("sa\n", s) || compstr("sb\n", s) || compstr("ss\n", s)
 		|| compstr("rr\n", s) || compstr("ra\n", s) || compstr("rb\n", s)
 		|| compstr("pa\n", s) || compstr("pb\n", s) || compstr("rrr\n", s)
-		|| compstr("rrb\n", s) || compstr("rrb\n", s))
+		|| compstr("rrb\n", s) || compstr("rra\n", s))
 		return (1);
 	return (0);
 }
@@ -45,7 +45,7 @@ void	do_move(t_stack **stack_a, t_stack **stack_b, char *move)
 		rrr(stack_a, stack_b);
 	else if (compstr("rrb\n", move))
 		rrb(stack_b);
-	else if (compstr("rrb\n", move))
+	else if (compstr("rra\n", move))
 		rra(stack_a);
 }
 
@@ -61,7 +61,7 @@ void	read_and_sort(t_stack **stack_a, t_stack **stack_b)
 		else
 		{
 			free(move);
-			write(2, "Error\n", 6);
+			write(2, "Error\n", 7);
 			return ;
 		}
 		free(move);
@@ -69,40 +69,6 @@ void	read_and_sort(t_stack **stack_a, t_stack **stack_b)
 	}
 	get_next_line(-1);
 }
-
-// void	setup_and_validate(int ac, char **av, char ***numbers, int *size)
-// {
-// 	if (ac < 2)
-// 		exit(1);
-// 	*size = count_args(&av[1]);
-// 	*numbers = (char **)malloc(sizeof(char *) * (*size + 1));
-// 	if (!*numbers)
-// 		exit(1);
-// 	(*numbers)[0] = NULL;
-// 	proccess_argments(&av[1], *numbers);
-// 	validate_arguments(*numbers, *size);
-// }
-
-// int	main(int ac, char **av)
-// {
-// 	t_stack	*stack_a;
-// 	t_stack	*stack_b;
-// 	char	**numbers;
-// 	int		size;
-
-// 	stack_b = NULL;
-// 	setup_and_validate(ac, av, &numbers, &size);
-// 	stack_a = fill_stack_a(size, numbers);
-// 	read_and_sort(&stack_a, &stack_b);
-// 	if (is_sorted(stack_a) && !stack_b)
-// 		write(1, "ok\n", 3);
-// 	else
-// 		write(1, "ko\n", 3);
-// 	stack_clear(&stack_a);
-// 	stack_clear(&stack_b);
-// 	free_all(numbers);
-// 	return (0);
-// }
 
 int	main(int ac, char **av)
 {

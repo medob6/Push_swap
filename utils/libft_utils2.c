@@ -6,11 +6,11 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:47:53 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:06:23 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:23:35 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 char	*ft_strdup(const char *s1)
 {

@@ -6,11 +6,11 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:47:56 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 09:48:23 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:23:48 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	count_words(const char *str, char c)
 {

@@ -8,7 +8,7 @@ max[3]=2
 max[4]=6
 max[5]=11
 max[6]=50
-max[7]=50
+max[7]=60
 
 for i in {2..7}
 do

@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:46:57 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:38:06 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:18:52 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -587,30 +587,30 @@ void	main_sort_algo(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		big_sort_algo(stack_a, stack_b, stack_size);
 }
 
-int	main(int ac, char **av)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char	**numbers;
-	int		size;
+// int	main(int ac, char **av)
+// {
+// 	t_stack	*stack_a;
+// 	t_stack	*stack_b;
+// 	char	**numbers;
+// 	int		size;
 
-	stack_b = NULL;
-	size = count_args(&av[1]);
-	numbers = (char **)malloc(sizeof(char *) * (size + 1));
-	if (!numbers)
-		return (1);
-	numbers[0] = NULL;
-	proccess_argments(&av[1], numbers);
-	if (ac < 2)
-		return (1);
-	if (!check_args(numbers, size))
-		exit_error(numbers, 1);
-	if (!check_duplicates(numbers, size))
-		exit_error(numbers, 1);
-	stack_a = fill_stack_a(size, numbers);
-	main_sort_algo(&stack_a, &stack_b, size);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
-	free_all(numbers);
-	return (0);
-}
+// 	stack_b = NULL;
+// 	size = count_args(&av[1]);
+// 	numbers = (char **)malloc(sizeof(char *) * (size + 1));
+// 	if (!numbers)
+// 		return (1);
+// 	numbers[0] = NULL;
+// 	proccess_argments(&av[1], numbers);
+// 	if (ac < 2)
+// 		return (1);
+// 	if (!check_args(numbers, size))
+// 		exit_error(numbers, 1);
+// 	if (!check_duplicates(numbers, size))
+// 		exit_error(numbers, 1);
+// 	stack_a = fill_stack_a(size, numbers);
+// 	main_sort_algo(&stack_a, &stack_b, size);
+// 	stack_clear(&stack_a);
+// 	stack_clear(&stack_b);
+// 	free_all(numbers);
+// 	return (0);
+// }
