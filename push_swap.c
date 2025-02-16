@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:46:57 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 13:18:52 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:04:54 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -515,12 +515,12 @@ void	get_next_nrang(t_stack **stack_a, int size, int range)
 	{
 		i = size - next_nrange(*stack_a, range);
 		while (i--)
-			rra(stack_a);
+			rra(stack_a, 1);
 	}
 	else
 	{
 		while (i--)
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 }
 
@@ -534,13 +534,13 @@ void	move_elements_to_b(t_stack **stack_a, t_stack **stack_b, int size,
 	{
 		if ((*stack_a)->index <= i)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			pb(stack_a, stack_b, 1);
+			rb(stack_b, 1);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + range)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 1);
 			i++;
 		}
 		else
@@ -573,7 +573,7 @@ void	main_sort_algo(t_stack **stack_a, t_stack **stack_b, int stack_size)
 	if (stack_size == 2)
 	{
 		if ((*stack_a)->nbr > (*stack_a)->next->nbr)
-			sa(*stack_a);
+			sa(*stack_a, 1);
 		return ;
 	}
 	else if (stack_size <= 5)
@@ -581,36 +581,36 @@ void	main_sort_algo(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		push_n_small_nbr(stack_size, stack_a, stack_b, stack_size - 3);
 		sort3num(stack_a);
 		while ((stack_size-- - 3))
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, 1);
 	}
 	else
 		big_sort_algo(stack_a, stack_b, stack_size);
 }
 
-// int	main(int ac, char **av)
-// {
-// 	t_stack	*stack_a;
-// 	t_stack	*stack_b;
-// 	char	**numbers;
-// 	int		size;
+int	main(int ac, char **av)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	char	**numbers;
+	int		size;
 
-// 	stack_b = NULL;
-// 	size = count_args(&av[1]);
-// 	numbers = (char **)malloc(sizeof(char *) * (size + 1));
-// 	if (!numbers)
-// 		return (1);
-// 	numbers[0] = NULL;
-// 	proccess_argments(&av[1], numbers);
-// 	if (ac < 2)
-// 		return (1);
-// 	if (!check_args(numbers, size))
-// 		exit_error(numbers, 1);
-// 	if (!check_duplicates(numbers, size))
-// 		exit_error(numbers, 1);
-// 	stack_a = fill_stack_a(size, numbers);
-// 	main_sort_algo(&stack_a, &stack_b, size);
-// 	stack_clear(&stack_a);
-// 	stack_clear(&stack_b);
-// 	free_all(numbers);
-// 	return (0);
-// }
+	stack_b = NULL;
+	size = count_args(&av[1]);
+	numbers = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!numbers)
+		return (1);
+	numbers[0] = NULL;
+	proccess_argments(&av[1], numbers);
+	if (ac < 2)
+		return (1);
+	if (!check_args(numbers, size))
+		exit_error(numbers, 1);
+	if (!check_duplicates(numbers, size))
+		exit_error(numbers, 1);
+	stack_a = fill_stack_a(size, numbers);
+	main_sort_algo(&stack_a, &stack_b, size);
+	stack_clear(&stack_a);
+	stack_clear(&stack_b);
+	free_all(numbers);
+	return (0);
+}

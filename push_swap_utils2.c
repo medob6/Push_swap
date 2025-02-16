@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:47:11 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:34:26 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:04:52 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,25 @@ void	sort3num(t_stack **stack_a)
 	if ((*stack_a)->nbr > (*stack_a)->next->nbr
 		&& (*stack_a)->nbr > (*stack_a)->next->next->nbr)
 	{
-		ra(stack_a);
+		ra(stack_a, 1);
 		if ((*stack_a)->nbr > (*stack_a)->next->nbr)
-			sa(*stack_a);
+			sa(*stack_a, 1);
 	}
 	else if ((*stack_a)->nbr > (*stack_a)->next->nbr)
 	{
-		sa(*stack_a);
+		sa(*stack_a, 1);
 		if ((*stack_a)->nbr > (*stack_a)->next->next->nbr)
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 	else if ((*stack_a)->nbr > (*stack_a)->next->next->nbr)
 	{
-		rra(stack_a);
+		rra(stack_a, 1);
 		if ((*stack_a)->nbr > (*stack_a)->next->nbr)
-			sa(*stack_a);
+			sa(*stack_a, 1);
 	}
 	else if ((*stack_a)->next->nbr > (*stack_a)->next->next->nbr)
 	{
-		rra(stack_a);
-		sa(*stack_a);
+		rra(stack_a, 1);
+		sa(*stack_a, 1);
 	}
 }

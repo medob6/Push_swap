@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:46:49 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:36:35 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:04:57 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ t_stack				*fill_stack_a(int size, char **av);
 void				stack_clear(t_stack **lst);
 
 // Stack operations (individual stacks)
-void				pa(t_stack **stack_a, t_stack **stack_b);
-void				pb(t_stack **stack_a, t_stack **stack_b);
-void				ra(t_stack **stack_a);
-void				rb(t_stack **stack_b);
-void				rra(t_stack **stack_a);
-void				rrb(t_stack **stack_b);
-void				sa(t_stack *stack_a);
-void				sb(t_stack *stack_b);
+void				pa(t_stack **stack_a, t_stack **stack_b, int sig);
+void				pb(t_stack **stack_a, t_stack **stack_b, int sig);
+void				ra(t_stack **stack_a, int sig);
+void				rb(t_stack **stack_b, int sig);
+void				rra(t_stack **stack_a, int sig);
+void				rrb(t_stack **stack_b, int sig);
+void				sa(t_stack *stack_a, int sig);
+void				sb(t_stack *stack_b, int sig);
 
 // Stack operations (both stacks)
-void				ss(t_stack *stack_a, t_stack *stack_b);
-void				rr(t_stack **stack_a, t_stack **stack_b);
-void				rrr(t_stack **stack_a, t_stack **stack_b);
+void				ss(t_stack *stack_a, t_stack *stack_b, int sig);
+void				rr(t_stack **stack_a, t_stack **stack_b, int sig);
+void				rrr(t_stack **stack_a, t_stack **stack_b, int sig);
 
 // Sorting and helper functions
 void				qsort_array(int *array, int size);

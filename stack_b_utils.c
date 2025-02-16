@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:44:57 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 09:59:18 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:05:09 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,25 @@ void	rotate(t_stack **stack)
 	head->previos = tail;
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, int sig)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (sig)
+		write(1, "rb\n", 3);
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack *stack_b, int sig)
 {
 	if (!stack_b || !stack_b->next)
 		return ;
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (sig)
+		write(1, "sb\n", 3);
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int sig)
 {
 	t_stack	*tail;
 
@@ -54,10 +56,11 @@ void	rrb(t_stack **stack_b)
 		return ;
 	tail = *stack_b;
 	revrotate(stack_b);
-	write(1, "rrb\n", 4);
+	if (sig)
+		write(1, "rrb\n", 4);
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, int sig)
 {
 	t_stack	*head;
 
@@ -71,5 +74,6 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_b)
 		(*stack_b)->previos = head;
 	(*stack_b) = head;
-	write(1, "pb\n", 3);
+	if (sig)
+		write(1, "pb\n", 3);
 }

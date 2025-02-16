@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:44:50 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:37:20 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:05:02 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ void	push_small(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		i = size - smalln_pos(*stack_a);
 		while (i--)
-			rra(stack_a);
-		pb(stack_a, stack_b);
+			rra(stack_a, 1);
+		pb(stack_a, stack_b, 1);
 	}
 	else
 	{
 		while (i--)
-			ra(stack_a);
-		pb(stack_a, stack_b);
+			ra(stack_a, 1);
+		pb(stack_a, stack_b, 1);
 	}
 }
 
@@ -77,21 +77,20 @@ void	push_best(t_stack **stack_a, t_stack **stack_b, int size, int pos)
 	{
 		i = size - pos;
 		while (i--)
-			rra(stack_a);
-		pb(stack_a, stack_b);
+			rra(stack_a, 1);
+		pb(stack_a, stack_b, 1);
 	}
 	else
 	{
 		while (i--)
-			ra(stack_a);
-		pb(stack_a, stack_b);
+			ra(stack_a, 1);
+		pb(stack_a, stack_b, 1);
 	}
 }
 
 void	push_n_small_nbr(int curr_stk_size, t_stack **stack_a,
 		t_stack **stack_b, int n)
 {
-
 	while (n--)
 	{
 		push_small(stack_a, stack_b, curr_stk_size);

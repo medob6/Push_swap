@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:45:09 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 10:34:57 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:05:04 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ void	push_back(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		i = size - big_n_pos(*stack_b);
 		while (i--)
-			rrb(stack_b);
-		pa(stack_a, stack_b);
+			rrb(stack_b, 1);
+		pa(stack_a, stack_b, 1);
 	}
 	else
 	{
 		while (i--)
-			rb(stack_b);
-		pa(stack_a, stack_b);
+			rb(stack_b, 1);
+		pa(stack_a, stack_b, 1);
 	}
 }
 

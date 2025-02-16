@@ -6,7 +6,7 @@
 /*   By: mbousset <mbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 09:45:04 by mbousset          #+#    #+#             */
-/*   Updated: 2025/02/16 09:45:05 by mbousset         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:05:07 by mbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,34 @@ void	swap(t_stack *stack)
 	stack->next->nbr = temp;
 }
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack *stack_a, int sig)
 {
 	if (!stack_a || !stack_a->next)
 		return ;
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (sig)
+		write(1, "sa\n", 3);
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int sig)
 {
 	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (sig)
+		write(1, "ra\n", 3);
 }
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int sig)
 {
 	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	revrotate(stack_a);
-	write(1, "rra\n", 4);
+	if (sig)
+		write(1, "rra\n", 4);
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, int sig)
 {
 	t_stack	*head;
 
@@ -61,5 +64,6 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		(*stack_a)->previos = head;
 	head->next = *stack_a;
 	*stack_a = head;
-	write(1, "pa\n", 3);
+	if (sig)
+		write(1, "pa\n", 3);
 }
